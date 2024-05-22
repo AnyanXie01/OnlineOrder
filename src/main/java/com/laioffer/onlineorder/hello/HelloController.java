@@ -13,7 +13,6 @@ import java.util.Locale;
 @RestController
 public class HelloController {
 
-
     @GetMapping("/hello")
     public Person sayHello(@RequestParam(required = false) String locale) {
         if (locale == null) {

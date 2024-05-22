@@ -14,11 +14,7 @@ public interface OrderItemRepository extends ListCrudRepository<OrderItemEntity,
 
 
     List<OrderItemEntity> getAllByCartId(Long cartId);
-
-
     OrderItemEntity findByCartIdAndMenuItemId(Long cartId, Long menuItemId);
-
-
     @Modifying
     @Query("DELETE FROM order_items WHERE cart_id = :cartId")
     void deleteByCartId(Long cartId);

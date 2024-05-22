@@ -7,7 +7,7 @@ import com.laioffer.onlineorder.entity.RestaurantEntity;
 import java.util.List;
 
 
-public record RestaurantDto(
+public record  RestaurantDto(
         Long id,
         String name,
         String address,

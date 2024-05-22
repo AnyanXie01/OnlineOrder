@@ -15,26 +15,16 @@ import java.util.List;
 
 @RestController
 public class MenuController {
-
-
     private final RestaurantService restaurantService;
     private final MenuItemService menuItemService;
-
-
     public MenuController(RestaurantService restaurantService, MenuItemService menuItemService) {
         this.restaurantService = restaurantService;
         this.menuItemService = menuItemService;
     }
-
-
     @GetMapping("/restaurant/{restaurantId}/menu")
     public List<MenuItemEntity> getMenuByRestaurant(@PathVariable("restaurantId")  long restaurantId) {
         return menuItemService.getMenuItemsByRestaurantId(restaurantId);
     }
-
-
-
-
     @GetMapping("/restaurants/menu")
     public List<RestaurantDto> getMenuForAllRestaurants() {
         return restaurantService.getRestaurants();

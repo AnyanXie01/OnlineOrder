@@ -19,12 +19,8 @@ import java.util.Map;
 
 @Service
 public class RestaurantService {
-
-
     private final MenuItemRepository menuItemRepository;
     private final RestaurantRepository restaurantRepository;
-
-
     public RestaurantService(
             MenuItemRepository menuItemRepository,
             RestaurantRepository restaurantRepository
@@ -43,8 +39,6 @@ public class RestaurantService {
             MenuItemDto menuItemDto = new MenuItemDto(menuItemEntity);
             group.add(menuItemDto);
         }
-
-
         List<RestaurantDto> results = new ArrayList<>();
         for (RestaurantEntity restaurantEntity : restaurantEntities) {
             RestaurantDto restaurantDto = new RestaurantDto(restaurantEntity, groupedMenuItems.get(restaurantEntity.id()));

@@ -22,8 +22,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class AppConfig {
-
-
     @Bean
     UserDetailsManager users(DataSource dataSource) {
         JdbcUserDetailsManager userDetailsManager = new JdbcUserDetailsManager(dataSource);
@@ -33,14 +31,10 @@ public class AppConfig {
         userDetailsManager.setAuthoritiesByUsernameQuery("SELECT email, authorities FROM authorities WHERE email = ?");
         return userDetailsManager;
     }
-
-
     @Bean
     PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
@@ -64,6 +58,4 @@ public class AppConfig {
                 .logoutSuccessHandler(new HttpStatusReturningLogoutSuccessHandler(HttpStatus.OK));
         return http.build();
     }
-
-
 }

@@ -17,31 +17,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CartController {
 
-
+    // daily commit:.
     private final CartService cartService;
     private final CustomerService customerService;
-
-
     public CartController(CartService cartService, CustomerService customerService) {
         this.cartService = cartService;
         this.customerService = customerService;
     }
-
-
     @GetMapping("/cart")
     public CartDto getCart(@AuthenticationPrincipal User user) {
         CustomerEntity customer = customerService.getCustomerByEmail(user.getUsername());
         return cartService.getCart(customer.id());
     }
-
-
     @PostMapping("/cart")
     public void addToCart(@AuthenticationPrincipal User user, @RequestBody AddToCartBody body) {
         CustomerEntity customer = customerService.getCustomerByEmail(user.getUsername());
         cartService.addMenuItemToCart(customer.id(), body.menuId());
     }
-
-
     @PostMapping("/cart/checkout")
     public void checkout(@AuthenticationPrincipal User user) {
         CustomerEntity customer = customerService.getCustomerByEmail(user.getUsername());

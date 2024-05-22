@@ -15,14 +15,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class CustomerService {
-
-
     private final CartRepository cartRepository;
     private final CustomerRepository customerRepository;
     private final PasswordEncoder passwordEncoder;
     private final UserDetailsManager userDetailsManager;
-
-
     public CustomerService(CartRepository cartRepository,
                            CustomerRepository customerRepository,
                            PasswordEncoder passwordEncoder,

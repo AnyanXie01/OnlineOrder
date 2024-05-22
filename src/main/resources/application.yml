@@ -1,8 +1,8 @@
 spring:
   jackson:
     default-property-inclusion: non_null
-    property-naming-strategy: SNAKE_CASE
-  datasource:
+    property-naming-strategy: SNAKE_CASE #json naming strategy is snake case, auto convert from camel case to snake case.
+  datasource: # define how to connect to the database
     url: jdbc:postgresql://${DATABASE_URL:localhost}:5432/onlineorder
     username: ${DATABASE_USERNAME:postgres}
     password: ${DATABASE_PASSWORD:secret}
@@ -10,13 +10,13 @@ spring:
   sql:
     init:
       mode: ${INIT_DB:always}
-      schema-locations: "classpath:database-init.sql"
+      schema-locations: "classpath:database-init.sql" # database script, pre-written data.
   cache:
     caffeine:
       spec: expireAfterWrite=1m
 
 
-logging:
+logging: # Logging incoming http request
   level:
     org.apache.coyote.http11.Http11InputBuffer: DEBUG # Incoming HTTP requests
     org.springframework.jdbc.core: DEBUG # SQL
