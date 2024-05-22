@@ -1,4 +1,3 @@
-![1716413718556](https://github.com/AnyanXie01/OnlineOrder/assets/99570583/ceaecf4b-ebf4-4678-9c42-28112644a91f)# OnlineOrder
 Online Order: A Spring-based online food ordering system.
 URL:https://x3wj3umdag.us-east-2.awsapprunner.com/
 ## Login Page
